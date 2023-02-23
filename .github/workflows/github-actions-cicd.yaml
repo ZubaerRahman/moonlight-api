@@ -11,6 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+     - name: Test
+        env:
+          TEST_GITHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
+          TEST_SECRET: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: |
+          echo ${#TEST_GITHUB_TOKEN}
+          echo ${#TEST_SECRET}
+
     - name: Checkout code
       uses: actions/checkout@v2
       
