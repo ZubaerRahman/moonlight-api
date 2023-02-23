@@ -14,7 +14,7 @@ jobs:
     - name: Test
       env:
         TEST_GITHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
-        TEST_SECRET: ${{ secrets.DOCKERHUB_TOKEN }}
+        TEST_SECRET: ${{ secrets.DOCKERUHB_TOKEN }}
       run: |
         echo ${#TEST_GITHUB_TOKEN}
         echo ${#TEST_SECRET}
@@ -41,7 +41,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        password: ${{ secrets.DOCKERUHB_TOKEN }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
