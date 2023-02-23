@@ -25,6 +25,8 @@ RUN gradle wrapper
 # Run the Gradle build command to build the application
 RUN ./gradlew build --no-daemon --stacktrace --info
 
+RUN ls -R | grep "^[.]/" | sed -e "s/:$//" -e "s/[^/]*[/]/--/g" -e "s/^/   |/"
+
 # Copy the built JAR file to the container
 COPY build/libs/moonlight-0.0.1-SNAPSHOT.jar /app
 
