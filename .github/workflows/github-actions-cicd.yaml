@@ -47,3 +47,18 @@ jobs:
       with:
         name: moonlight-api
         path: build/libs/moonlight-api.jar
+
+    - name: Deploy to AWS
+      uses: appleboy/ssh-action@master
+      with:
+        host: {{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        envs: GITHUB_SHA
+        script: |
+          docker login
+          docker pull zubaerrahman/moonlight-api:latest
+          docker stop backend_server
+          docker rm backend_server
+          docker docker run --detach --name moonlight_api -p 80:8080 zubaerrahman/moonlight-api
+
