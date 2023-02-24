@@ -60,5 +60,5 @@ jobs:
           docker pull zubaerrahman/moonlight-api:latest
           docker stop backend_server
           docker rm backend_server
-          docker docker run --detach --name moonlight_api -p 80:8080 zubaerrahman/moonlight-api
+          docker docker run --d --name moonlight_api -p 80:8080 zubaerrahman/moonlight-api
 
