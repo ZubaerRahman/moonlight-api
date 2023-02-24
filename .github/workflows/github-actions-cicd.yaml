@@ -56,7 +56,7 @@ jobs:
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         envs: GITHUB_SHA
         script: |
-          systemctl start docker
+          sudo systemctl start docker
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
           docker pull zubaerrahman/moonlight-api:latest
           docker stop backend_server
