@@ -32,4 +32,4 @@ COPY build/libs/moonlight-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8080
 
 # Set the command to run the JAR file
-CMD ["java", "-jar", "/app/moonlight-api.jar"]
+CMD ["java", "-jar", "/app/moonlight-0.0.1-SNAPSHOT.jar"]
